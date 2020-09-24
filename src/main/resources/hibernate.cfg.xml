@@ -3,7 +3,7 @@
         "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
         "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-    <session-factory>
+    <session-factory>"hibernate.hbm2ddl.auto"
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
         <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/hibernate_test</property>
         <property name="hibernate.connection.username">user</property>
@@ -11,7 +11,7 @@
         <!-- show all queries -->
         <property name="hibernate.show_sql">false</property>
         <!-- create tables from entities -->
-        <property name="hibernate.hbm2ddl.auto">create-drop</property>
+        <property name=>create-drop</property>
         <!-- show pretty queries -->
         <property name="hibernate.format_sql">true</property>
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL10Dialect</property>

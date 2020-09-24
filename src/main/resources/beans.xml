@@ -1,2 +1,20 @@
-<!-- Configs -->
-<!-- NEW CONFIG -->
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="foo" class="org.step.spring.Foo">
+        <property name="iAmFoo" value="very new foo"/>
+    </bean>
+
+    <bean id="bar" class="org.step.spring.Bar">
+        <constructor-arg ref="foo"/>
+    </bean>
+
+    <bean id="dataSourceXml" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="org.postgresql.Driver"/>
+        <property name="url" value="jdbc:postgresql://localhost:5432/hibernate_test"/>
+        <property name="username" value="user"/>
+        <property name="password" value="userpassword"/>
+    </bean>
+</beans>

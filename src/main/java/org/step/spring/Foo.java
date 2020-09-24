@@ -6,4 +6,14 @@ package org.step.spring;
 и потом производится его внедрение при помощи BeanPostProcessor'ов
  */
 public class Foo {
+
+    private String iAmFoo = "Foo";
+
+    public String getiAmFoo() {
+        return iAmFoo;
+    }
+
+    public void setiAmFoo(String iAmFoo) {
+        this.iAmFoo = iAmFoo;
+    }
 }

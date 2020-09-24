@@ -2,6 +2,7 @@ package org.step.repository.impl;
 
 import org.hibernate.Session;
 import org.hibernate.annotations.QueryHints;
+import org.springframework.stereotype.Repository;
 import org.step.entity.User;
 import org.step.repository.SessionFactoryCreator;
 import org.step.repository.UserRepository;
