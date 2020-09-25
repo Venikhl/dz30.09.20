@@ -21,6 +21,11 @@ public class UserRepositoryImpl implements UserRepository {
     private final EntityManager entityManager = SessionFactoryCreator.getEntityManager();
 
     @Override
+    public void deleteAll() {
+
+    }
+
+    @Override
     public void updateUsername(String username, Long id) {
         Session session = SessionFactoryCreator.getSession();
 

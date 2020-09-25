@@ -1,8 +1,8 @@
-package org.step.repository;
+package org.step.service;
 
 import java.util.List;
 
-public interface CrudRepository<T> {
+public interface CrudService<T> {
 
     T save(T t);
 

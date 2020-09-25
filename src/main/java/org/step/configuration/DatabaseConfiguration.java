@@ -1,7 +1,6 @@
 package org.step.configuration;
 
 import org.hibernate.jpa.HibernatePersistenceProvider;
-import org.postgresql.Driver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.*;
@@ -12,8 +11,7 @@ import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
-import org.step.repository.ProfileRepository;
-import org.step.repository.impl.ProfileRepositoryImpl;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
@@ -26,16 +24,22 @@ beans.xml - то же что и конфигурация
 0. Загрузка Environment - среда в которой выполняется ваше приложение
 1. BeanDefinitionReader сканирует все классы и получает из них информацию о бинах
 2. BeanFactory - создает объекты из предоставленной информации
+3. Dependency Injection - внедрение созданных ранее зависимостей
  */
 @Configuration
 @ComponentScan(basePackages = {"org.step"})
 @PropertySources({
         @PropertySource("classpath:db.properties")
 })
+@EnableTransactionManagement
 public class DatabaseConfiguration {
 
+    private final Environment environment;
+
     @Autowired
-    private Environment environment;
+    public DatabaseConfiguration(Environment environment) {
+        this.environment = environment;
+    }
 
     /*
     Если ID не указан напрямую, то он всегда является названием метода (dataSource)

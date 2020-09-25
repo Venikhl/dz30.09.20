@@ -1,187 +1,194 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.step</groupId>
-  <artifactId>LinkedStep</artifactId>
-  <version>1.0-SNAPSHOT</version>
-  <packaging>jar</packaging>
+    <groupId>org.step</groupId>
+    <artifactId>LinkedStep</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
-  <name>LinkedStep Maven Webapp</name>
-  <url>http://localhost:7171</url>
+    <name>LinkedStep Maven Webapp</name>
+    <url>http://localhost:7171</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <junit.version>4.12</junit.version>
-    <spring.version>5.2.9.RELEASE</spring.version>
-    <hibernate.version>5.4.21.Final</hibernate.version>
-    <javax.persistence.version>2.2</javax.persistence.version>
-    <postgresql.version>42.2.16</postgresql.version>
-    <slf4j.version>1.7.30</slf4j.version>
-    <jakarta.el.version>3.0.3</jakarta.el.version>
-    <hibernate-validator.version>6.1.5.Final</hibernate-validator.version>
-  </properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <junit.version>4.12</junit.version>
+        <spring.version>5.2.9.RELEASE</spring.version>
+        <hibernate.version>5.4.21.Final</hibernate.version>
+        <javax.persistence.version>2.2</javax.persistence.version>
+        <postgresql.version>42.2.16</postgresql.version>
+        <slf4j.version>1.7.30</slf4j.version>
+        <jakarta.el.version>3.0.3</jakarta.el.version>
+        <hibernate-validator.version>6.1.5.Final</hibernate-validator.version>
+    </properties>
 
-  <dependencies>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-context</artifactId>
-      <version>${spring.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-core</artifactId>
-      <version>${spring.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-beans</artifactId>
-      <version>${spring.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-orm</artifactId>
-      <version>${spring.version}</version>
-    </dependency>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring.version}</version>
+            <scope>test</scope>
+        </dependency>
 
-    <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-core</artifactId>
-      <version>${hibernate.version}</version>
-    </dependency>
 
-    <!-- HIKARI CP HIBERNATE -->
-    <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-hikaricp</artifactId>
-      <version>${hibernate.version}</version>
-    </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
 
-    <!-- HIBERNATE VALIDATOR -->
-    <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-validator</artifactId>
-      <version>${hibernate-validator.version}</version>
-    </dependency>
+        <!-- HIKARI CP HIBERNATE -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-hikaricp</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
 
-    <dependency>
-      <groupId>org.glassfish</groupId>
-      <artifactId>jakarta.el</artifactId>
-      <version>${jakarta.el.version}</version>
-    </dependency>
+        <!-- HIBERNATE VALIDATOR -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate-validator.version}</version>
+        </dependency>
 
-    <dependency>
-      <groupId>javax.persistence</groupId>
-      <artifactId>javax.persistence-api</artifactId>
-      <version>${javax.persistence.version}</version>
-    </dependency>
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>jakarta.el</artifactId>
+            <version>${jakarta.el.version}</version>
+        </dependency>
 
-    <!-- LOGGING HIBERNATE WORKING -->
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-log4j12</artifactId>
-      <version>${slf4j.version}</version>
-    </dependency>
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>javax.persistence-api</artifactId>
+            <version>${javax.persistence.version}</version>
+        </dependency>
 
-    <!-- HIBERNATE JPA MODEL GENERATOR -->
-    <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-jpamodelgen</artifactId>
-      <version>${hibernate.version}</version>
-    </dependency>
+        <!-- LOGGING HIBERNATE WORKING -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
 
-    <dependency>
-      <groupId>org.postgresql</groupId>
-      <artifactId>postgresql</artifactId>
-      <version>${postgresql.version}</version>
-    </dependency>
+        <!-- HIBERNATE JPA MODEL GENERATOR -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-jpamodelgen</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
 
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>${junit.version}</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgresql.version}</version>
+        </dependency>
 
-  <build>
-    <finalName>LinkedStep</finalName>
-      <plugins>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.8.0</version>
-          <configuration>
-            <release>11</release>
-            <annotationProcessorPaths>
-              <path>
-                <groupId>org.hibernate</groupId>
-                <artifactId>hibernate-jpamodelgen</artifactId>
-                <version>${hibernate.version}</version>
-              </path>
-            </annotationProcessorPaths>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-jar-plugin</artifactId>
-          <version>3.2.0</version>
-          <configuration>
-            <archive>
-              <manifest>
-                <addClasspath>true</addClasspath>
-                <mainClass>org.step.Runner</mainClass>
-                <classpathPrefix>libs/</classpathPrefix>
-              </manifest>
-            </archive>
-          </configuration>
-        </plugin>
-<!--        <plugin>-->
-<!--          <groupId>org.apache.maven.plugins</groupId>-->
-<!--          <artifactId>maven-dependency-plugin</artifactId>-->
-<!--          <version>3.1.2</version>-->
-<!--          <executions>-->
-<!--            <execution>-->
-<!--              <id>copy-dependencies</id>-->
-<!--              <phase>prepare-package</phase>-->
-<!--              <goals>-->
-<!--                <goal>copy-dependencies</goal>-->
-<!--              </goals>-->
-<!--              <configuration>-->
-<!--                <outputDirectory>-->
-<!--                  ${project.build.directory}/libs-->
-<!--                </outputDirectory>-->
-<!--              </configuration>-->
-<!--            </execution>-->
-<!--          </executions>-->
-<!--        </plugin>-->
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-assembly-plugin</artifactId>
-          <version>3.3.0</version>
-          <executions>
-            <execution>
-              <phase>package</phase>
-              <goals>
-                <goal>single</goal>
-              </goals>
-              <configuration>
-                <archive>
-                  <manifest>
-                    <mainClass>
-                      org.step.Runner
-                    </mainClass>
-                  </manifest>
-                </archive>
-                <descriptorRefs>
-                  <descriptorRef>jar-with-dependencies</descriptorRef>
-                </descriptorRefs>
-              </configuration>
-            </execution>
-          </executions>
-        </plugin>
-      </plugins>
-  </build>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>LinkedStep</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <release>11</release>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.hibernate</groupId>
+                            <artifactId>hibernate-jpamodelgen</artifactId>
+                            <version>${hibernate.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>org.step.Runner</mainClass>
+                            <classpathPrefix>libs/</classpathPrefix>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <!--        <plugin>-->
+            <!--          <groupId>org.apache.maven.plugins</groupId>-->
+            <!--          <artifactId>maven-dependency-plugin</artifactId>-->
+            <!--          <version>3.1.2</version>-->
+            <!--          <executions>-->
+            <!--            <execution>-->
+            <!--              <id>copy-dependencies</id>-->
+            <!--              <phase>prepare-package</phase>-->
+            <!--              <goals>-->
+            <!--                <goal>copy-dependencies</goal>-->
+            <!--              </goals>-->
+            <!--              <configuration>-->
+            <!--                <outputDirectory>-->
+            <!--                  ${project.build.directory}/libs-->
+            <!--                </outputDirectory>-->
+            <!--              </configuration>-->
+            <!--            </execution>-->
+            <!--          </executions>-->
+            <!--        </plugin>-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.3.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <archive>
+                                <manifest>
+                                    <mainClass>
+                                        org.step.Runner
+                                    </mainClass>
+                                </manifest>
+                            </archive>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
