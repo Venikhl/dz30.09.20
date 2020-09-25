@@ -49,8 +49,40 @@ public class DatabaseConfiguration {
 //        return new ProfileRepositoryImpl();
 //    }
 
+    /*
+    singleton - Bean будет создан 1 раз за весь цикл жизни приложения
+    prototype - Bean будет создан, когда произойдет обращение к нему (не создаются на старте контекста)
+    request - Bean будет создан каждый раз, когда появляется новый Http request
+    session - Bean будет создан каждый раз, когда появляется новая Http сессия
+    globalSession - как и session, только для Portlet web приложений
+     */
     @Bean(value = "dataSourceJavaConfig")
-    public DataSource dataSource() {
+    @Profile("default")
+//    @Scope("prototype")
+    public DataSource dataSourceDevelopment() {
+        System.out.println("***********THIS IS DEV***********");
+
+        final var url = environment.getProperty("db.url");
+        final var driver = environment.getProperty("db.driver");
+        final var username = environment.getProperty("db.username");
+        final var password = environment.getProperty("db.password");
+
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+
+        dataSource.setUrl(url);
+        // org.postgresql.Driver
+        dataSource.setDriverClassName(driver);
+        dataSource.setUsername(username);
+        dataSource.setPassword(password);
+
+        return dataSource;
+    }
+
+    @Bean(value = "dataSourceJavaConfig")
+    @Profile("prod")
+    public DataSource dataSourceProduction() {
+        System.out.println("***********THIS IS PROD***********");
+
         final var url = environment.getProperty("db.url");
         final var driver = environment.getProperty("db.driver");
         final var username = environment.getProperty("db.username");
@@ -70,7 +102,7 @@ public class DatabaseConfiguration {
     @Bean
 //    @DependsOn(value = {"dataSourceJavaConfig"})
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(
-            @Qualifier(value = "dataSourceJavaConfig") DataSource dataSource
+            DataSource dataSource
     ) {
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
 

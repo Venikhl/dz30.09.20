@@ -11,10 +11,10 @@
         <constructor-arg ref="foo"/>
     </bean>
 
-    <bean id="dataSourceXml" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="org.postgresql.Driver"/>
-        <property name="url" value="jdbc:postgresql://localhost:5432/hibernate_test"/>
-        <property name="username" value="user"/>
-        <property name="password" value="userpassword"/>
-    </bean>
+<!--    <bean id="dataSourceXml" class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
+<!--        <property name="driverClassName" value="org.postgresql.Driver"/>-->
+<!--        <property name="url" value="jdbc:postgresql://localhost:5432/hibernate_test"/>-->
+<!--        <property name="username" value="user"/>-->
+<!--        <property name="password" value="userpassword"/>-->
+<!--    </bean>-->
 </beans>

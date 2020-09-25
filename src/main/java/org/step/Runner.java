@@ -48,22 +48,32 @@ public class Runner {
 //        System.out.println(bar.getFoo().getiAmFoo());
 
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(DatabaseConfiguration.class);
+//
+//        ProfileRepository profileRepository = applicationContext.getBean("profileRepositoryImpl", ProfileRepository.class);
+//
+//        System.out.println(profileRepository);
+//
+//        DataSource dataSource = applicationContext.getBean("dataSourceJavaConfig", DataSource.class);
+//
+//        LocalContainerEntityManagerFactoryBean entityManagerFactory = applicationContext.getBean("entityManagerFactory", LocalContainerEntityManagerFactoryBean.class);
+//
+//        System.out.println(entityManagerFactory);
+//
+//        Connection connection = dataSource.getConnection();
+//
+//        DatabaseMetaData metaData = connection.getMetaData();
+//
+//        System.out.println(metaData.getDatabaseProductName());
 
-        ProfileRepository profileRepository = applicationContext.getBean("profileRepositoryImpl", ProfileRepository.class);
+        DataSource first = applicationContext.getBean("dataSourceJavaConfig", DataSource.class);
 
-        System.out.println(profileRepository);
+        DataSource second = applicationContext.getBean("dataSourceJavaConfig", DataSource.class);
 
-        DataSource dataSource = applicationContext.getBean("dataSourceJavaConfig", DataSource.class);
-
-        LocalContainerEntityManagerFactoryBean entityManagerFactory = applicationContext.getBean("entityManagerFactory", LocalContainerEntityManagerFactoryBean.class);
-
-        System.out.println(entityManagerFactory);
-
-        Connection connection = dataSource.getConnection();
-
-        DatabaseMetaData metaData = connection.getMetaData();
-
-        System.out.println(metaData.getDatabaseProductName());
+        if (first == second) {
+            System.out.println("They are the same");
+        } else {
+            System.out.println("They are different beans");
+        }
     }
 
 
