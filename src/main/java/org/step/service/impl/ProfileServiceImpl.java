@@ -29,6 +29,7 @@ public class ProfileServiceImpl implements CrudService<Profile> {
     @Override
     @Transactional
     public Profile save(Profile profile) {
+        System.out.println("Profile save method is called");
         return profileCrudRepository.save(profile);
     }
 

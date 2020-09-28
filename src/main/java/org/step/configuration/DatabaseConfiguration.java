@@ -36,6 +36,8 @@ beans.xml - то же что и конфигурация
         @PropertySource("classpath:db.properties")
 })
 @EnableTransactionManagement
+// Включает аспектно-ориентированный шаблон программирования для Spring
+@EnableAspectJAutoProxy
 public class DatabaseConfiguration {
 
     private final Environment environment;

@@ -1,15 +1,11 @@
 package org.step.spring;
 
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.cglib.proxy.Enhancer;
 import org.springframework.cglib.proxy.MethodInterceptor;
-import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.lang.reflect.Field;
 
 @Component
@@ -23,8 +19,6 @@ public class DogMakerBeanPostProcessor implements BeanPostProcessor {
         final String dogSound = "bark";
 
         Class<?>[] interfaces = bean.getClass().getInterfaces();
-
-
 
         if (bean.getClass().isAssignableFrom(Animal.class)) {
             System.out.println(beanName);
