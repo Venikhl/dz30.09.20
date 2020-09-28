@@ -8,6 +8,7 @@ import org.step.configuration.DatabaseConfiguration;
 import org.step.repository.ProfileRepository;
 import org.step.repository.SessionFactoryCreator;
 import org.step.repository.UserRepository;
+import org.step.spring.Animal;
 import org.step.spring.Bar;
 import org.step.spring.Foo;
 
@@ -65,15 +66,21 @@ public class Runner {
 //
 //        System.out.println(metaData.getDatabaseProductName());
 
-        DataSource first = applicationContext.getBean("dataSourceJavaConfig", DataSource.class);
+//        DataSource first = applicationContext.getBean("dataSourceJavaConfig", DataSource.class);
+//
+//        DataSource second = applicationContext.getBean("dataSourceJavaConfig", DataSource.class);
+//
+//        if (first == second) {
+//            System.out.println("They are the same");
+//        } else {
+//            System.out.println("They are different beans");
+//        }
 
-        DataSource second = applicationContext.getBean("dataSourceJavaConfig", DataSource.class);
+        Animal animal = applicationContext.getBean("animal", Animal.class);
 
-        if (first == second) {
-            System.out.println("They are the same");
-        } else {
-            System.out.println("They are different beans");
-        }
+        System.out.println(animal.getClass().getSimpleName());
+
+        String sound = animal.getSound();
     }
 
 

@@ -16,7 +16,7 @@ import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {DatabaseConfiguration.class})
-@ActiveProfiles("dev")
+@ActiveProfiles("prod")
 public class ProfileServiceImplTest {
 
     @Autowired

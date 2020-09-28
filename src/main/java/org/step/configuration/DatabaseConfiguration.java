@@ -25,6 +25,10 @@ beans.xml - то же что и конфигурация
 1. BeanDefinitionReader сканирует все классы и получает из них информацию о бинах
 2. BeanFactory - создает объекты из предоставленной информации
 3. Dependency Injection - внедрение созданных ранее зависимостей
+4. BeanPostProcessor - method postProcessBeforeInitialization - настроит бин
+5. @PostConstruct (init-method, afterPropertiesSet)
+6. BeanPostProcessor - method postProcessAfterInitialization - создает (если нужно) proxy класс
+7. @PreDestroy (destroy)
  */
 @Configuration
 @ComponentScan(basePackages = {"org.step"})
