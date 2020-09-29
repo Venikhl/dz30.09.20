@@ -9,8 +9,8 @@ import org.step.service.CrudService;
 
 import java.util.List;
 
-@Service
-public class ProfileServiceImpl implements CrudService<Profile> {
+@Service("profileService")
+public class ProfileServiceImpl implements CrudService<Profile, Long> {
 
     //    Not recommended
 //    @Autowired

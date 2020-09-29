@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -38,6 +39,7 @@ beans.xml - то же что и конфигурация
 @EnableTransactionManagement
 // Включает аспектно-ориентированный шаблон программирования для Spring
 @EnableAspectJAutoProxy
+@EnableJpaRepositories(basePackages = "org.step")
 public class DatabaseConfiguration {
 
     private final Environment environment;
