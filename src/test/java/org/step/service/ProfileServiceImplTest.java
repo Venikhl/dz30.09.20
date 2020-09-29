@@ -25,7 +25,7 @@ public class ProfileServiceImplTest {
     private Profile profile;
 
     @Before
-    public void setup() {
+    public void setup() throws InterruptedException {
         profile = Profile
                 .builder()
                 .graduation("grad")
@@ -34,7 +34,9 @@ public class ProfileServiceImplTest {
                 .fullName("full")
                 .build();
 
-        profileCrudService.save(profile);
+        Profile save = profileCrudService.save(profile);
+
+        System.out.println(save);
     }
 
     @After
@@ -60,6 +62,8 @@ public class ProfileServiceImplTest {
     @Test
     public void findAllProfiles() {
         List<Profile> all = profileCrudService.findAll();
+
+        all.forEach(pr -> System.out.println(pr.toString()));
 
         Assert.assertFalse(all.isEmpty());
     }
