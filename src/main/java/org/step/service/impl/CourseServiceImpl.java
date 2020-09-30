@@ -83,6 +83,14 @@ public class CourseServiceImpl implements CrudService<Course, String>, CourseSer
     }
 
     @Override
+    @Transactional(readOnly = true)
+    public List<Course> findAllByIdWithSorting() {
+        final Sort byId = Sort.by("id");
+
+        return courseRepository.findAllWithSortingById(byId);
+    }
+
+    @Override
     @Transactional
     public void saveAll(Collection<Course> courses) {
         courseRepository.saveAll(courses);

@@ -14,4 +14,6 @@ public interface CourseService {
     List<Course> findAllByTopicSorted(String topic);
 
     void saveAll(Collection<Course> courses);
+
+    List<Course> findAllByIdWithSorting();
 }

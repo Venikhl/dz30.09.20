@@ -86,4 +86,11 @@ public class CourseServiceTest {
 
         List<Course> topic = courseService.findAllByTopicSorted("topic");
     }
+
+    @Test
+    public void shouldReturnEntityByIdWithSorting() {
+        List<Course> allByIdWithSorting = courseService.findAllByIdWithSorting();
+
+        allByIdWithSorting.forEach(System.out::println);
+    }
 }

@@ -120,6 +120,9 @@ public class DatabaseConfiguration {
         factory.setJpaProperties(jpaProperties());
         factory.setPackagesToScan("org.step");
 
+//        1--- JDBC
+//        2--- JPA
+//        3--- Spring Data
         return factory;
     }
 
