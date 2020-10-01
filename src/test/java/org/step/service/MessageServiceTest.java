@@ -13,11 +13,13 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.support.TransactionTemplate;
 import org.step.configuration.DatabaseConfiguration;
 import org.step.entity.Message;
+import org.step.entity.dto.MessageDTO;
 import org.step.entity.projection.MessageOpenProjection;
 import org.step.entity.projection.MessageProjection;
 import org.step.repository.MessageRepository;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Stream;
@@ -36,7 +38,9 @@ public class MessageServiceTest {
     public void setup() {
         final Random random = new Random();
 
-        this.transactionTemplate = new TransactionTemplate(platformTransactionManager);
+        if (transactionTemplate == null) {
+            this.transactionTemplate = new TransactionTemplate(platformTransactionManager);
+        }
 
         transactionTemplate.execute(status -> {
             Stream
@@ -75,6 +79,15 @@ public class MessageServiceTest {
         List<MessageOpenProjection> allByMessage = messageRepository.findAllByMessage("message 3");
 
         allByMessage.forEach(mp -> System.out.println(mp.getMessageWithIdDescription()));
+    }
+
+    @Test
+    public void findAllByMessageWithDTO() {
+        List<MessageDTO> allMessageByIdIn = messageRepository.findAllMessageByIdIn(
+                Arrays.asList(1L,2L,3L,4L,5L,6L,7L,8L,9L,10L,11L,12L,13L,14L,15L,16L,17L)
+        );
+
+        allMessageByIdIn.forEach(md -> System.out.println(md.getMessage()));
     }
 
     @Test
