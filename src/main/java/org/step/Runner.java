@@ -2,29 +2,16 @@ package org.step;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.step.configuration.DatabaseConfiguration;
-import org.step.repository.ProfileRepository;
-import org.step.repository.SessionFactoryCreator;
-import org.step.repository.UserRepository;
 import org.step.spring.Animal;
-import org.step.spring.Bar;
-import org.step.spring.Foo;
 
-import javax.persistence.EntityManager;
-import javax.sql.DataSource;
-import javax.validation.Validation;
-import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
-import java.sql.Connection;
-import java.sql.DatabaseMetaData;
 import java.sql.SQLException;
-import java.util.Map;
 
 public class Runner {
 
     public static void main(String[] args) throws SQLException {
+
+        // test one
 //
 //        ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
 //
