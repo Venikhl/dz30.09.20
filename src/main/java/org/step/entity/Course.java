@@ -8,6 +8,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "courses")
+@NamedQuery(name = "Course.findAllNamedQuery", query = "select c from Course c")
 public class Course {
 
     @Id
@@ -28,6 +29,7 @@ public class Course {
             // inverseJoinColumns - для сущности, на другой стороне
             inverseJoinColumns = @JoinColumn(name = "user_id")
     )
+    @OrderBy("id")
     private Set<User> userSet = new HashSet<>();
 
 //    @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
