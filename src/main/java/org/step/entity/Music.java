@@ -2,10 +2,21 @@ package org.step.entity;
 
 import javax.persistence.*;
 
+import static org.step.entity.Message.USER_ENTITY_GRAPH;
+
 @Entity
 // do not write user
 @Table(name = "musics")
+//@NamedEntityGraphs({
+//        @NamedEntityGraph(
+//                name = SPEAKER_ENTITIE_GRAPH,
+//                attributeNodes = @NamedAttributeNode(value = "speaker")
+//        )
+//})
 public class Music {
+
+    //public static final String SPEAKER_ENTITIE_GRAPH = "Music.findSpeaker";
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")

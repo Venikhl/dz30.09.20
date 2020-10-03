@@ -2,19 +2,17 @@ package org.step.entity;
 
 import javax.persistence.*;
 
-import static org.step.entity.User.USER_MESSAGE_GRAPH;
-
 @Entity
 @Table(name = "speakers")
-@NamedEntityGraph(
-        name = SPEAKER_MUSIC_GRAPH,
-        attributeNodes = {
-                @NamedAttributeNode(value = Speaker_.MUSIC)
-        }
-)
+//@NamedEntityGraph(
+//        name = SPEAKER_MUSIC_GRAPH,
+//        attributeNodes = {
+//                @NamedAttributeNode(value = Speaker_.MUSIC)
+//        }
+//)
 public class Speaker {
 
-    public static final String SPEAKER_MUSIC_GRAPH = "Speaker[music]";
+    //public static final String SPEAKER_MUSIC_GRAPH = "Speaker[music]";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
