@@ -2,10 +2,20 @@ package org.step.entity;
 
 import javax.persistence.*;
 
+import static org.step.entity.User.USER_MESSAGE_GRAPH;
+
 @Entity
-// do not write user
 @Table(name = "speakers")
+@NamedEntityGraph(
+        name = SPEAKER_MUSIC_GRAPH,
+        attributeNodes = {
+                @NamedAttributeNode(value = Speaker_.MUSIC)
+        }
+)
 public class Speaker {
+
+    public static final String SPEAKER_MUSIC_GRAPH = "Speaker[music]";
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -17,13 +27,21 @@ public class Speaker {
     @Column(name = "model")
     private String model;
 
+    @OneToOne(
+            mappedBy = "speaker",
+            cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH},
+            fetch = FetchType.LAZY
+    )
+    private Music music;
+
     public Speaker() {
     }
 
-    public Speaker(Long id, String name, String model) {
+    public Speaker(Long id, String name, String model, Music music) {
         this.id = id;
         this.name = name;
         this.model = model;
+        this.music = music;
     }
 
     public Long getId() {
@@ -50,6 +68,14 @@ public class Speaker {
         this.model = model;
     }
 
+    public Music getMusic() {
+        return music;
+    }
+
+    public void setMusic(Music music) {
+        this.music = music;
+    }
+
     public static Speaker.SpeakerBuilder builder() {
         return new Speaker.SpeakerBuilder();
     }
@@ -58,6 +84,7 @@ public class Speaker {
         private Long id;
         private String name;
         private String model;
+        private Music music;
 
         private SpeakerBuilder() {
         }
@@ -77,8 +104,13 @@ public class Speaker {
             return this;
         }
 
+        public Speaker.SpeakerBuilder music(Music music) {
+            this.music = music;
+            return this;
+        }
+
         public Speaker build() {
-            return new Speaker(id, name, model);
+            return new Speaker(id, name, model, music);
         }
     }
 }
